@@ -27,5 +27,5 @@ jobs:
     - name: Test with pytest
       run: |
         '```' >> $env:GITHUB_STEP_SUMMARY
-        python -m unittest *>> $env:GITHUB_STEP_SUMMARY
+        python -m unittest *>&1 | Tee-Object -FilePath "$env:GITHUB_STEP_SUMMARY" -Append
         '```' >> $env:GITHUB_STEP_SUMMARY
